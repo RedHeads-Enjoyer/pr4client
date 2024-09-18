@@ -11,7 +11,7 @@ import reactor.core.publisher.Flux;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/cats")
+@RequestMapping("/api/cars")
 public class ChannelController {
 
     private class CarListWrapper {

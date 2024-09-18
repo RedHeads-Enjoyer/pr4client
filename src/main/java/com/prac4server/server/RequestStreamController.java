@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/cats")
+@RequestMapping("api/cars")
 public class RequestStreamController {
     private final RSocketRequester rSocketRequester;
 
@@ -21,7 +21,6 @@ public class RequestStreamController {
     public Publisher<Car> getCars() {
         return rSocketRequester
                 .route("getCars")
-                .data(new Car())
                 .retrieveFlux(Car.class);
     }
 }

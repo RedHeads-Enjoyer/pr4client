@@ -3,10 +3,11 @@ package com.prac4server.server;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.rsocket.RSocketRequester;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("api/cats")
+@RequestMapping("api/cars")
 public class RequestResponseController {
     private final RSocketRequester rSocketRequester;
 
@@ -15,7 +16,7 @@ public class RequestResponseController {
         this.rSocketRequester = rSocketRequester;
     }
 
-    @GetMapping("/{}id")
+    @GetMapping("/{id}")
     public Mono<Car> getCar(@PathVariable Long id) {
         return rSocketRequester
                 .route("getCar")

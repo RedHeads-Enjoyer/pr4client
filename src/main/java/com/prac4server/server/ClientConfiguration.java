@@ -15,7 +15,6 @@ import java.time.Duration;
 
 @Configuration
 public class ClientConfiguration {
-
     @Bean
     public RSocketStrategies clientRSocketStrategies() {
         return RSocketStrategies.builder()
@@ -25,9 +24,9 @@ public class ClientConfiguration {
     }
 
     @Bean
-    public RSocketRequester getRSocketRequester(RSocketRequester.Builder builder) {
-        return builder.
-                rsocketStrategies(clientRSocketStrategies())
+    public RSocketRequester getRSocketRequester() {
+        return RSocketRequester.builder()
+                .rsocketStrategies(clientRSocketStrategies())
                 .rsocketConnector(connector -> connector
                         .payloadDecoder(PayloadDecoder.ZERO_COPY)
                         .reconnect(Retry.fixedDelay(2, Duration.ofSeconds(2))))

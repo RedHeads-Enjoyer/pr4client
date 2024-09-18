@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("api/cats")
+@RequestMapping("api/cars")
 public class FireForgetController {
     private final RSocketRequester rSocketRequester;
 
